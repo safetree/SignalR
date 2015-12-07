@@ -71,7 +71,9 @@ namespace Microsoft.AspNet.SignalR.Json
         /// <returns>The newly created <see cref="T:Newtonsoft.Json.JsonSerializerSettings"/>.</returns>
         public static JsonSerializerSettings CreateDefaultSerializerSettings()
         {
-            return new JsonSerializerSettings() { MaxDepth = DefaultMaxDepth };
+            var settings = JsonConvert.DefaultSettings();
+            settings.MaxDepth = DefaultMaxDepth;
+            return settings;
         }
 
         /// <summary>
